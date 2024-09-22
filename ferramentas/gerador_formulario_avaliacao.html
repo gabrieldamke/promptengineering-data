@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação de Modelos</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Avaliação de Modelos</h1>
+        <form id="evaluationForm">
+            <div class="form-group">
+                <label for="modelId">ID da Avaliação</label>
+                <input type="text" class="form-control" id="modelId" placeholder="Digite o ID da avaliação" required>
+            </div>
+
+            <!-- Avaliação do Modelo Llama3 -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3>Avaliação do Modelo Llama3</h3>
+                </div>
+                <div class="card-body">
+                    <!-- Zero Shot -->
+                    <div class="technique-section mb-4">
+                        <h4>Zero Shot</h4>
+                        
+                        <div class="evaluation-category">
+                            <h5>Corretude</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="llama3_zero_shot_correct_k1">
+                                <label class="form-check-label" for="llama3_zero_shot_correct_k1">K1</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="llama3_zero_shot_correct_k3">
+                                <label class="form-check-label" for="llama3_zero_shot_correct_k3">K3</label>
+                            </div>
+                        </div>
+
+                        <div class="evaluation-category">
+                            <h5>Performance</h5>
+
+                            <div class="evaluation-metric">
+                                <h6>Espaço</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="llama3_zero_shot_space_k1">
+                                    <label class="form-check-label" for="llama3_zero_shot_space_k1">K1</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="llama3_zero_shot_space_k3">
+                                    <label class="form-check-label" for="llama3_zero_shot_space_k3">K3</label>
+                                </div>
+                            </div>
+
+                            <div class="evaluation-metric">
+                                <h6>Tempo</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="llama3_zero_shot_time_k1">
+                                    <label class="form-check-label" for="llama3_zero_shot_time_k1">K1</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="llama3_zero_shot_time_k3">
+                                    <label class="form-check-label" for="llama3_zero_shot_time_k3">K3</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Few Shot -->
+                    <div class="technique-section mb-4">
+                        <h4>Few Shot</h4>
+
+                        <div class="evaluation-category">
+                            <h5>Corretude</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="llama3_few_shot_correct_k1">
+                                <label class="form-check-label" for="llama3_few_shot_correct_k1">K1</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="llama3_few_shot_correct_k3">
+                                <label class="form-check-label" for="llama3_few_shot_correct_k3">K3</label>
+                            </div>
+                        </div>
+
+                        <div class="evaluation-category">
+                            <h5>Performance</h5>
+
+                            <div class="evaluation-metric">
+                                <h6>Espaço</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="llama3_few_shot_space_k1">
+                                    <label class="form-check-label" for="llama3_few_shot_space_k1">K1</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="llama3_few_shot_space_k3">
+                                    <label class="form-check-label" for="llama3_few_shot_space_k3">K3</label>
+                                </div>
+                            </div>
+
+                            <div class="evaluation-metric">
+                                <h6>Tempo</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="llama3_few_shot_time_k1">
+                                    <label class="form-check-label" for="llama3_few_shot_time_k1">K1</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="llama3_few_shot_time_k3">
+                                    <label class="form-check-label" for="llama3_few_shot_time_k3">K3</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chain of Thought (CoT) -->
+                    <div class="technique-section">
+                        <h4>Chain of Thought (CoT)</h4>
+
+                        <div class="evaluation-category">
+                            <h5>Corretude</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="llama3_cot_correct_k1">
+                                <label class="form-check-label" for="llama3_cot_correct_k1">K1</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="llama3_cot_correct_k3">
+                                <label class="form-check-label" for="llama3_cot_correct_k3">K3</label>
+                            </div>
+                        </div>
+
+                        <div class="evaluation-category">
+                            <h5>Performance</h5>
+
+                            <div class="evaluation-metric">
+                                <h6>Espaço</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="llama3_cot_space_k1">
+                                    <label class="form-check-label" for="llama3_cot_space_k1">K1</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="llama3_cot_space_k3">
+                                    <label class="form-check-label" for="llama3_cot_space_k3">K3</label>
+                                </div>
+                            </div>
+
+                            <div class="evaluation-metric">
+                                <h6>Tempo</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="llama3_cot_time_k1">
+                                    <label class="form-check-label" for="llama3_cot_time_k1">K1</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="llama3_cot_time_k3">
+                                    <label class="form-check-label" for="llama3_cot_time_k3">K3</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avaliação do Modelo Gemma2 -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3>Avaliação do Modelo Gemma2</h3>
+                </div>
+                <div class="card-body">
+                    <!-- Zero Shot -->
+                    <div class="technique-section mb-4">
+                        <h4>Zero Shot</h4>
+
+                        <div class="evaluation-category">
+                            <h5>Corretude</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gemma2_zero_shot_correct_k1">
+                                <label class="form-check-label" for="gemma2_zero_shot_correct_k1">K1</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gemma2_zero_shot_correct_k3">
+                                <label class="form-check-label" for="gemma2_zero_shot_correct_k3">K3</label>
+                            </div>
+                        </div>
+
+                        <div class="evaluation-category">
+                            <h5>Performance</h5>
+
+                            <div class="evaluation-metric">
+                                <h6>Espaço</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gemma2_zero_shot_space_k1">
+                                    <label class="form-check-label" for="gemma2_zero_shot_space_k1">K1</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gemma2_zero_shot_space_k3">
+                                    <label class="form-check-label" for="gemma2_zero_shot_space_k3">K3</label>
+                                </div>
+                            </div>
+
+                            <div class="evaluation-metric">
+                                <h6>Tempo</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gemma2_zero_shot_time_k1">
+                                    <label class="form-check-label" for="gemma2_zero_shot_time_k1">K1</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gemma2_zero_shot_time_k3">
+                                    <label class="form-check-label" for="gemma2_zero_shot_time_k3">K3</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Few Shot -->
+                    <div class="technique-section mb-4">
+                        <h4>Few Shot</h4>
+
+                        <div class="evaluation-category">
+                            <h5>Corretude</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gemma2_few_shot_correct_k1">
+                                <label class="form-check-label" for="gemma2_few_shot_correct_k1">K1</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gemma2_few_shot_correct_k3">
+                                <label class="form-check-label" for="gemma2_few_shot_correct_k3">K3</label>
+                            </div>
+                        </div>
+
+                        <div class="evaluation-category">
+                            <h5>Performance</h5>
+
+                            <div class="evaluation-metric">
+                                <h6>Espaço</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gemma2_few_shot_space_k1">
+                                    <label class="form-check-label" for="gemma2_few_shot_space_k1">K1</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gemma2_few_shot_space_k3">
+                                    <label class="form-check-label" for="gemma2_few_shot_space_k3">K3</label>
+                                </div>
+                            </div>
+
+                            <div class="evaluation-metric">
+                                <h6>Tempo</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gemma2_few_shot_time_k1">
+                                    <label class="form-check-label" for="gemma2_few_shot_time_k1">K1</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gemma2_few_shot_time_k3">
+                                    <label class="form-check-label" for="gemma2_few_shot_time_k3">K3</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chain of Thought (CoT) -->
+                    <div class="technique-section">
+                        <h4>Chain of Thought (CoT)</h4>
+
+                        <div class="evaluation-category">
+                            <h5>Corretude</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gemma2_cot_correct_k1">
+                                <label class="form-check-label" for="gemma2_cot_correct_k1">K1</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gemma2_cot_correct_k3">
+                                <label class="form-check-label" for="gemma2_cot_correct_k3">K3</label>
+                            </div>
+                        </div>
+
+                        <div class="evaluation-category">
+                            <h5>Performance</h5>
+
+                            <div class="evaluation-metric">
+                                <h6>Espaço</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gemma2_cot_space_k1">
+                                    <label class="form-check-label" for="gemma2_cot_space_k1">K1</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gemma2_cot_space_k3">
+                                    <label class="form-check-label" for="gemma2_cot_space_k3">K3</label>
+                                </div>
+                            </div>
+
+                            <div class="evaluation-metric">
+                                <h6>Tempo</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gemma2_cot_time_k1">
+                                    <label class="form-check-label" for="gemma2_cot_time_k1">K1</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gemma2_cot_time_k3">
+                                    <label class="form-check-label" for="gemma2_cot_time_k3">K3</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary" onclick="generateJson()">Gerar JSON</button>
+        </form>
+
+        <div class="mt-4">
+            <h3>JSON Gerado:</h3>
+            <pre id="generatedJson"></pre>
+        </div>
+    </div>
+
+    <script>
+        function generateJson() {
+            const json = {
+                id: document.getElementById('modelId').value,
+                Llama3: {
+                    zero_shot: {
+                        Memoria: {
+                            k1: document.getElementById('llama3_zero_shot_space_k1').checked,
+                            k3: document.getElementById('llama3_zero_shot_space_k3').checked,
+                        },
+                        Tempo: {
+                            k1: document.getElementById('llama3_zero_shot_time_k1').checked,
+                            k3: document.getElementById('llama3_zero_shot_time_k3').checked,
+                        },
+                        Corretude: {
+                            k1: document.getElementById('llama3_zero_shot_correct_k1').checked,
+                            k3: document.getElementById('llama3_zero_shot_correct_k3').checked,
+                        }
+                    },
+                    few_shot: {
+                        Memoria: {
+                            k1: document.getElementById('llama3_few_shot_space_k1').checked,
+                            k3: document.getElementById('llama3_few_shot_space_k3').checked,
+                        },
+                        Tempo: {
+                            k1: document.getElementById('llama3_few_shot_time_k1').checked,
+                            k3: document.getElementById('llama3_few_shot_time_k3').checked,
+                        },
+                        Corretude: {
+                            k1: document.getElementById('llama3_few_shot_correct_k1').checked,
+                            k3: document.getElementById('llama3_few_shot_correct_k3').checked,
+                        }
+                    },
+                    chain_of_thought: {
+                        Memoria: {
+                            k1: document.getElementById('llama3_cot_space_k1').checked,
+                            k3: document.getElementById('llama3_cot_space_k3').checked,
+                        },
+                        Tempo: {
+                            k1: document.getElementById('llama3_cot_time_k1').checked,
+                            k3: document.getElementById('llama3_cot_time_k3').checked,
+                        },
+                        Corretude: {
+                            k1: document.getElementById('llama3_cot_correct_k1').checked,
+                            k3: document.getElementById('llama3_cot_correct_k3').checked,
+                        }
+                    }
+                },
+                Gemma2: {
+                    zero_shot: {
+                        Memoria: {
+                            k1: document.getElementById('gemma2_zero_shot_space_k1').checked,
+                            k3: document.getElementById('gemma2_zero_shot_space_k3').checked,
+                        },
+                        Tempo: {
+                            k1: document.getElementById('gemma2_zero_shot_time_k1').checked,
+                            k3: document.getElementById('gemma2_zero_shot_time_k3').checked,
+                        },
+                        Corretude: {
+                            k1: document.getElementById('gemma2_zero_shot_correct_k1').checked,
+                            k3: document.getElementById('gemma2_zero_shot_correct_k3').checked,
+                        }
+                    },
+                    few_shot: {
+                        Memoria: {
+                            k1: document.getElementById('gemma2_few_shot_space_k1').checked,
+                            k3: document.getElementById('gemma2_few_shot_space_k3').checked,
+                        },
+                        Tempo: {
+                            k1: document.getElementById('gemma2_few_shot_time_k1').checked,
+                            k3: document.getElementById('gemma2_few_shot_time_k3').checked,
+                        },
+                        Corretude: {
+                            k1: document.getElementById('gemma2_few_shot_correct_k1').checked,
+                            k3: document.getElementById('gemma2_few_shot_correct_k3').checked,
+                        }
+                    },
+                    chain_of_thought: {
+                        Memoria: {
+                            k1: document.getElementById('gemma2_cot_space_k1').checked,
+                            k3: document.getElementById('gemma2_cot_space_k3').checked,
+                        },
+                        Tempo: {
+                            k1: document.getElementById('gemma2_cot_time_k1').checked,
+                            k3: document.getElementById('gemma2_cot_time_k3').checked,
+                        },
+                        Corretude: {
+                            k1: document.getElementById('gemma2_cot_correct_k1').checked,
+                            k3: document.getElementById('gemma2_cot_correct_k3').checked,
+                        }
+                    }
+                }
+            };
+            document.getElementById('generatedJson').textContent = JSON.stringify(json, null, 4);
+        }
+    </script>
+</body>
+</html>

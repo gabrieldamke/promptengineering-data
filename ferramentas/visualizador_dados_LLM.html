@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador de JSON</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Visualizador de JSON</h1>
+        <div class="form-group">
+            <label for="jsonInput">Insira o JSON:</label>
+            <textarea class="form-control" id="jsonInput" rows="10" placeholder='Cole o JSON aqui'></textarea>
+        </div>
+        <button class="btn btn-primary" onclick="processJson()">Processar JSON</button>
+
+        <div id="result" class="mt-4"></div>
+    </div>
+
+    <script>
+        function processJson() {
+            const jsonInput = document.getElementById('jsonInput').value;
+            try {
+                const jsonData = JSON.parse(jsonInput);
+
+                let outputHtml = '';
+                for (const model in jsonData) {
+                    if (jsonData.hasOwnProperty(model)) {
+                        if (model !== 'id') {
+                            outputHtml += `<h3>${model}</h3>`;
+
+                            for (const method in jsonData[model]) {
+                                if (jsonData[model].hasOwnProperty(method)) {
+                                    outputHtml += `<h4>${method}</h4>`;
+
+                                    for (const metric in jsonData[model][method]) {
+                                        if (jsonData[model][method].hasOwnProperty(metric)) {
+                                            outputHtml += `<h5>${metric}</h5>`;
+
+                                            for (const key in jsonData[model][method][metric]) {
+                                                if (jsonData[model][method][metric].hasOwnProperty(key)) {
+                                                    const value = jsonData[model][method][metric][key];
+                                                    const formattedValue = value ? value.replace(/\\n/g, '\n') : '';
+                                                    outputHtml += `<pre><strong>${key}:</strong><br>${formattedValue}</pre>`;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                document.getElementById('result').innerHTML = outputHtml;
+
+            } catch (error) {
+                document.getElementById('result').innerHTML = '<div class="alert alert-danger">Erro ao processar JSON: ' + error.message + '</div>';
+            }
+        }
+    </script>
+</body>
+</html>

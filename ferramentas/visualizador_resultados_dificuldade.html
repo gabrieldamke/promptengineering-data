@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Análise de Performance de Modelos</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #f9f9f9;
+      }
+
+      h1,
+      h2 {
+        color: #333;
+      }
+
+      #input-section,
+      #results-section {
+        margin-bottom: 30px;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      textarea {
+        width: 100%;
+        padding: 10px;
+        resize: vertical;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 14px;
+      }
+
+      button {
+        padding: 12px 25px;
+        margin-top: 15px;
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: #218838;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid #aaa;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: center;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      caption {
+        caption-side: top;
+        font-weight: bold;
+        margin-bottom: 10px;
+        font-size: 18px;
+      }
+
+      .results-group {
+        margin-bottom: 40px;
+      }
+
+      .results-group h3 {
+        margin-top: 20px;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Análise de Performance de Modelos</h1>
+
+    <div id="input-section">
+      <h2>Inserir Dados JSON</h2>
+      <textarea
+        id="json-input"
+        rows="15"
+        placeholder='Cole seu array JSON aqui, por exemplo:
+
+[
+    {
+        "id": "1",
+        "dificuldade": "facil",
+        "Llama3": {
+            "zero_shot": {
+                "Memoria": {"k1": true, "k3": true},
+                "Tempo": {"k1": false, "k3": false},
+                "Corretude": {"k1": true, "k3": true}
+            },
+            "few_shot": {
+                "Memoria": {"k1": true, "k3": true},
+                "Tempo": {"k1": true, "k3": true},
+                "Corretude": {"k1": true, "k3": true}
+            },
+            "chain_of_thought": {
+                "Memoria": {"k1": true, "k3": true},
+                "Tempo": {"k1": false, "k3": true},
+                "Corretude": {"k1": false, "k3": true}
+            }
+        },
+        "Gemma2": {
+            "zero_shot": {
+                "Memoria": {"k1": true, "k3": true},
+                "Tempo": {"k1": false, "k3": false},
+                "Corretude": {"k1": false, "k3": true}
+            },
+            "few_shot": {
+                "Memoria": {"k1": true, "k3": true},
+                "Tempo": {"k1": true, "k3": true},
+                "Corretude": {"k1": true, "k3": true}
+            },
+            "chain_of_thought": {
+                "Memoria": {"k1": true, "k3": true},
+                "Tempo": {"k1": true, "k3": true},
+                "Corretude": {"k1": true, "k3": true}
+            }
+        }
+    },
+    {
+        "id": "2",
+        "dificuldade": "dificil",
+        "Llama3": {
+            "zero_shot": {
+                "Memoria": {"k1": false, "k3": true},
+                "Tempo": {"k1": true, "k3": false},
+                "Corretude": {"k1": true, "k3": false}
+            },
+            "few_shot": {
+                "Memoria": {"k1": true, "k3": false},
+                "Tempo": {"k1": false, "k3": true},
+                "Corretude": {"k1": false, "k3": true}
+            },
+            "chain_of_thought": {
+                "Memoria": {"k1": false, "k3": false},
+                "Tempo": {"k1": true, "k3": true},
+                "Corretude": {"k1": true, "k3": true}
+            }
+        },
+        "Gemma2": {
+            "zero_shot": {
+                "Memoria": {"k1": true, "k3": false},
+                "Tempo": {"k1": false, "k3": true},
+                "Corretude": {"k1": true, "k3": false}
+            },
+            "few_shot": {
+                "Memoria": {"k1": false, "k3": true},
+                "Tempo": {"k1": true, "k3": false},
+                "Corretude": {"k1": true, "k3": true}
+            },
+            "chain_of_thought": {
+                "Memoria": {"k1": true, "k3": true},
+                "Tempo": {"k1": false, "k3": false},
+                "Corretude": {"k1": true, "k3": true}
+            }
+        }
+    }
+]
+        '
+      ></textarea>
+      <button id="generate-btn">Gerar Tabelas</button>
+    </div>
+
+    <div id="results-section">
+      <h2>Resultados</h2>
+      <!-- As tabelas serão geradas aqui -->
+    </div>
+
+    <script>
+      // Referências aos elementos do DOM
+      const jsonInput = document.getElementById("json-input");
+      const generateBtn = document.getElementById("generate-btn");
+      const resultsSection = document.getElementById("results-section");
+
+      // Função para processar o JSON inserido
+      function processJSON(input) {
+        let dataArray;
+        try {
+          dataArray = JSON.parse(input);
+          if (!Array.isArray(dataArray)) {
+            alert("O JSON inserido não é um array.");
+            return null;
+          }
+        } catch (e) {
+          alert("Erro ao analisar o JSON. Por favor, verifique a formatação.");
+          return null;
+        }
+
+        // Verificar se cada objeto possui o atributo "dificuldade"
+        for (let i = 0; i < dataArray.length; i++) {
+          if (!dataArray[i].hasOwnProperty("dificuldade")) {
+            alert(
+              `O objeto com id "${
+                dataArray[i].id || i + 1
+              }" está faltando o atributo "dificuldade".`
+            );
+            return null;
+          }
+
+          // Validar o valor de "dificuldade"
+          const dificuldade = dataArray[i].dificuldade.toLowerCase();
+          if (!["facil", "media", "dificil"].includes(dificuldade)) {
+            alert(
+              `O objeto com id "${
+                dataArray[i].id || i + 1
+              }" possui uma dificuldade inválida: "${
+                dataArray[i].dificuldade
+              }". Use "facil", "media" ou "dificil".`
+            );
+            return null;
+          }
+        }
+
+        return dataArray;
+      }
+
+      // Função para calcular as porcentagens agrupadas por Tipo de Engenharia de Prompt, Dificuldade e K
+      function calculatePercentages(dataArray) {
+        // Estrutura para armazenar o desempenho por Tipo de Engenharia de Prompt, Dificuldade e K
+        const performance = {};
+
+        dataArray.forEach((item) => {
+          const dificuldade = item.dificuldade.toLowerCase();
+
+          for (let model in item) {
+            if (model === "id" || model === "dificuldade") continue; // Ignorar 'id' e 'dificuldade'
+
+            const scenarios = item[model];
+            for (let scenario in scenarios) {
+              // Inicializar estrutura se não existir
+              if (!performance[scenario]) {
+                performance[scenario] = {
+                  facil: {
+                    k1: { total: 0, true: 0 },
+                    k3: { total: 0, true: 0 },
+                  },
+                  media: {
+                    k1: { total: 0, true: 0 },
+                    k3: { total: 0, true: 0 },
+                  },
+                  dificil: {
+                    k1: { total: 0, true: 0 },
+                    k3: { total: 0, true: 0 },
+                  },
+                };
+              }
+
+              const attributes = scenarios[scenario];
+              for (let attr in attributes) {
+                const keys = attributes[attr];
+                for (let key in keys) {
+                  if (key === "k1" || key === "k3") {
+                    performance[scenario][dificuldade][key].total += 1;
+                    if (keys[key]) {
+                      performance[scenario][dificuldade][key].true += 1;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        });
+
+        // Calcular porcentagens e médias
+        const performancePercent = {};
+
+        for (let scenario in performance) {
+          performancePercent[scenario] = {};
+
+          ["facil", "media", "dificil"].forEach((dificuldade) => {
+            performancePercent[scenario][dificuldade] = {};
+
+            ["k1", "k3"].forEach((k) => {
+              const { total, true: trues } =
+                performance[scenario][dificuldade][k];
+              const percentage = total === 0 ? 0 : (trues / total) * 100;
+              performancePercent[scenario][dificuldade][k] =
+                percentage.toFixed(2);
+            });
+
+            // Calcular média de k1 e k3
+            const avg =
+              (parseFloat(performancePercent[scenario][dificuldade]["k1"]) +
+                parseFloat(performancePercent[scenario][dificuldade]["k3"])) /
+              2;
+            performancePercent[scenario][dificuldade]["media"] = avg.toFixed(2);
+          });
+        }
+
+        return performancePercent;
+      }
+
+      // Função para gerar as tabelas
+      function generateTables(performance) {
+        // Limpa resultados anteriores
+        resultsSection.innerHTML = "<h2>Resultados</h2>";
+
+        // Mapeamento para formatação dos nomes das dificuldades
+        const dificuldadeMap = {
+          facil: "Fácil",
+          media: "Média",
+          dificil: "Difícil",
+        };
+
+        for (let scenario in performance) {
+          const groupDiv = document.createElement("div");
+          groupDiv.className = "results-group";
+
+          const groupTitle = document.createElement("h3");
+          groupTitle.textContent = `Tipo de Engenharia de Prompt: ${formatScenarioName(
+            scenario
+          )}`;
+          groupDiv.appendChild(groupTitle);
+
+          ["facil", "media", "dificil"].forEach((dificuldade) => {
+            const tableTitle = document.createElement("h4");
+            tableTitle.textContent = `Resultados com Dificuldade ${dificuldadeMap[dificuldade]}`;
+            tableTitle.style.marginTop = "20px";
+            groupDiv.appendChild(tableTitle);
+
+            const table = document.createElement("table");
+            const caption = document.createElement("caption");
+            caption.textContent = `Atributos: k1, k3 e Média`;
+            table.appendChild(caption);
+
+            const thead = document.createElement("thead");
+            thead.innerHTML = `
+                <tr>
+                    <th>Métrica</th>
+                    <th>Performance (%)</th>
+                </tr>
+            `;
+            table.appendChild(thead);
+
+            const tbody = document.createElement("tbody");
+            ["k1", "k3", "media"].forEach((metric) => {
+              const row = document.createElement("tr");
+              let metricName = metric.toUpperCase();
+              if (metric === "media") metricName = "Média";
+
+              row.innerHTML = `
+                    <td>${metricName}</td>
+                    <td>${performance[scenario][dificuldade][metric]}%</td>
+                `;
+              tbody.appendChild(row);
+            });
+            table.appendChild(tbody);
+
+            groupDiv.appendChild(table);
+          });
+
+          resultsSection.appendChild(groupDiv);
+        }
+      }
+
+      // Função para formatar o nome do cenário
+      function formatScenarioName(scenario) {
+        // Converter 'zero_shot' para 'Zero-shot' e assim por diante
+        return scenario
+          .split("_")
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join("-");
+      }
+
+      // Evento de clique no botão "Gerar Tabelas"
+      generateBtn.addEventListener("click", () => {
+        const input = jsonInput.value.trim();
+
+        if (input === "") {
+          alert("Por favor, insira o JSON antes de gerar as tabelas.");
+          return;
+        }
+
+        const dataArray = processJSON(input);
+        if (!dataArray) return; // Se houve erro no processamento
+
+        if (dataArray.length === 0) {
+          alert("O array JSON está vazio.");
+          return;
+        }
+
+        const performance = calculatePercentages(dataArray);
+        generateTables(performance);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1106 @@
+[
+  {
+    "id": "1",
+    "dificuldade": "media",
+    "Llama3": {
+      "zero_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": false
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "few_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "chain_of_thought": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": false,
+          "k3": true
+        }
+      }
+    },
+    "Gemma2": {
+      "zero_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": false
+        },
+        "Corretude": {
+          "k1": false,
+          "k3": true
+        }
+      },
+      "few_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "chain_of_thought": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      }
+    }
+  },
+  {
+    "id": "2",
+    "dificuldade": "facil",
+    "Llama3": {
+      "zero_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "few_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "chain_of_thought": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      }
+    },
+    "Gemma2": {
+      "zero_shot": {
+        "Memoria": {
+          "k1": false,
+          "k3": false
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "few_shot": {
+        "Memoria": {
+          "k1": false,
+          "k3": false
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "chain_of_thought": {
+        "Memoria": {
+          "k1": false,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      }
+    }
+  },
+  {
+    "id": "3",
+    "dificuldade": "facil",
+    "Llama3": {
+      "zero_shot": {
+        "Memoria": {
+          "k1": false,
+          "k3": false
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "few_shot": {
+        "Memoria": {
+          "k1": false,
+          "k3": false
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "chain_of_thought": {
+        "Memoria": {
+          "k1": false,
+          "k3": false
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      }
+    },
+    "Gemma2": {
+      "zero_shot": {
+        "Memoria": {
+          "k1": false,
+          "k3": false
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": false,
+          "k3": true
+        }
+      },
+      "few_shot": {
+        "Memoria": {
+          "k1": false,
+          "k3": false
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "chain_of_thought": {
+        "Memoria": {
+          "k1": false,
+          "k3": false
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      }
+    }
+  },
+  {
+    "id": "4",
+    "dificuldade": "facil",
+    "Llama3": {
+      "zero_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "few_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "chain_of_thought": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      }
+    },
+    "Gemma2": {
+      "zero_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "few_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "chain_of_thought": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      }
+    }
+  },
+  {
+    "id": "5",
+    "dificuldade": "dificil",
+    "Llama3": {
+      "zero_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "few_shot": {
+        "Memoria": {
+          "k1": false,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "chain_of_thought": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": false
+        },
+        "Corretude": {
+          "k1": false,
+          "k3": false
+        }
+      }
+    },
+    "Gemma2": {
+      "zero_shot": {
+        "Memoria": {
+          "k1": false,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": false
+        },
+        "Corretude": {
+          "k1": false,
+          "k3": false
+        }
+      },
+      "few_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": false
+        },
+        "Corretude": {
+          "k1": false,
+          "k3": true
+        }
+      },
+      "chain_of_thought": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": false
+        },
+        "Corretude": {
+          "k1": false,
+          "k3": false
+        }
+      }
+    }
+  },
+  {
+    "id": "6",
+    "dificuldade": "media",
+    "Llama3": {
+      "zero_shot": {
+        "Memoria": {
+          "k1": false,
+          "k3": false
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": false
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "few_shot": {
+        "Memoria": {
+          "k1": false,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": false
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "chain_of_thought": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": false
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      }
+    },
+    "Gemma2": {
+      "zero_shot": {
+        "Memoria": {
+          "k1": false,
+          "k3": false
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": false
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "few_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": false
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "chain_of_thought": {
+        "Memoria": {
+          "k1": false,
+          "k3": false
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": false
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      }
+    }
+  },
+  {
+    "id": "7",
+    "dificuldade": "dificil",
+    "Llama3": {
+      "zero_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": false
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "few_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "chain_of_thought": {
+        "Memoria": {
+          "k1": false,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      }
+    },
+    "Gemma2": {
+      "zero_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": false
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "few_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "chain_of_thought": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      }
+    }
+  },
+  {
+    "id": "8",
+    "dificuldade": "media",
+    "Llama3": {
+      "zero_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "few_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "chain_of_thought": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      }
+    },
+    "Gemma2": {
+      "zero_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": false
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "few_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "chain_of_thought": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      }
+    }
+  },
+  {
+    "id": "9",
+    "dificuldade": "facil",
+    "Llama3": {
+      "zero_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "few_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "chain_of_thought": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      }
+    },
+    "Gemma2": {
+      "zero_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "few_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "chain_of_thought": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      }
+    }
+  },
+  {
+    "id": "10",
+    "dificuldade": "dificil",
+    "Llama3": {
+      "zero_shot": {
+        "Memoria": {
+          "k1": false,
+          "k3": false
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": false
+        },
+        "Corretude": {
+          "k1": false,
+          "k3": false
+        }
+      },
+      "few_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": false,
+          "k3": true
+        }
+      },
+      "chain_of_thought": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": false,
+          "k3": true
+        }
+      }
+    },
+    "Gemma2": {
+      "zero_shot": {
+        "Memoria": {
+          "k1": false,
+          "k3": false
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": false
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "few_shot": {
+        "Memoria": {
+          "k1": false,
+          "k3": false
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": false
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "chain_of_thought": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      }
+    }
+  },
+  {
+    "id": "11",
+    "dificuldade": "media",
+    "Llama3": {
+      "zero_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "few_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "chain_of_thought": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      }
+    },
+    "Gemma2": {
+      "zero_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "few_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "chain_of_thought": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      }
+    }
+  },
+  {
+    "id": "12",
+    "dificuldade": "dificil",
+    "Llama3": {
+      "zero_shot": {
+        "Memoria": {
+          "k1": false,
+          "k3": false
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": false
+        },
+        "Corretude": {
+          "k1": false,
+          "k3": false
+        }
+      },
+      "few_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "chain_of_thought": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      }
+    },
+    "Gemma2": {
+      "zero_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": false,
+          "k3": false
+        },
+        "Corretude": {
+          "k1": false,
+          "k3": false
+        }
+      },
+      "few_shot": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      },
+      "chain_of_thought": {
+        "Memoria": {
+          "k1": true,
+          "k3": true
+        },
+        "Tempo": {
+          "k1": true,
+          "k3": true
+        },
+        "Corretude": {
+          "k1": true,
+          "k3": true
+        }
+      }
+    }
+  }
+]
